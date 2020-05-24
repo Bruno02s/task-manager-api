@@ -52,7 +52,7 @@ RSpec.describe 'Sessions API', type: :request do
       expect(response).to have_http_status(204)
     end
 
-    it 'chenges the user auth token' do
+    it 'changes the user auth token' do
       expect( User.find_by(auth_token: auth_token) ).to be_nil
     end
   end
