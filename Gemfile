@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#Adaptares JsonAPI
+gem 'active_model_serializers', '~> 0.10.0'
 #User control
 gem 'devise'
 # Use postgresql as the database for Active Record
