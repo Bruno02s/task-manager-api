@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#Search adapter
+gem 'ransack'
 #Adaptares JsonAPI
 gem 'active_model_serializers', '~> 0.10.0'
 #User control
