@@ -1,7 +1,11 @@
 class User < ApplicationRecord
+  
   has_many :tasks, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
+
+  include DeviseTokenAuth::Concerns::User
          
   validates_uniqueness_of :auth_token
   before_create :generate_authentication_token!
