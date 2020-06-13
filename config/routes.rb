@@ -3,8 +3,11 @@ require 'api_version_constraint'
 Rails.application.routes.draw do
   devise_for :users, only: [:sessions], controllers: { sessions: 'api/v1/sessions' }
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do
+  #Configuration for use Subdomain API
+  #namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do
+
+  #Using Heroku
+  namespace :api, defaults: { format: :json }, path: '/' do
     namespace :v1, constraints: ApiVersionConstraint.new(version: 1),  path: '/' do
       resources :users, only: [:show, :create, :update, :destroy]
       resources :sessions, only: [:create, :destroy]
